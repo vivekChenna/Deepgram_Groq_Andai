@@ -7,6 +7,10 @@ import { OpenAIStream, StreamingTextResponse } from "ai";
 // const writeFileAsync = util.promisify(fs.writeFile);
 // const mkdirAsync = util.promisify(fs.mkdir);
 
+// Optional, but recommended: run on the edge runtime.
+// See https://vercel.com/docs/concepts/functions/edge-functions
+export const runtime = "edge";
+
 
 const openai = new OpenAI({
   baseURL: process.env.BASE_URL!,
