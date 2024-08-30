@@ -73,9 +73,9 @@ const ModelSelection = ({
               size="sm"
               src={item.data?.avatar}
             />
-            <div className="flex flex-col">
+            <div className="flex flex-col text-black">
               <span>{item.data?.name}</span>
-              <span className="text-default-500 text-tiny">
+              <span className="text-tiny">
                 ({item.data?.model} - {item.data?.language} {item.data?.accent})
               </span>
             </div>
@@ -121,14 +121,14 @@ export const Settings = () => {
             href="#"
             onClick={onOpen}
           >
-            <CogIcon className="w-5 h-5 transition-transform ease-in-out duration-2000 group-hover:rotate-180" />
-            <span className="ml-2.5 text-xs">Change settings</span>
+            <CogIcon className="w-5 h-5 transition-transform ease-in-out duration-2000 group-hover:rotate-180 text-white" />
+            <span className="ml-2.5 text-xs text-white">Change Voice</span>
           </a>
         </span>
-        <span className="hidden md:inline-block text-white/50 font-inter">
+        <span className="hidden md:inline-block text-gray-500/70 font-inter">
           Voice:{" "}
-          <span className="text-white">
-            {voiceMap(ttsOptions?.model as string).name}
+          <span className="text-gray-500/70">
+            {voiceMap(ttsOptions?.model as string)?.name}
           </span>
         </span>
       </div>

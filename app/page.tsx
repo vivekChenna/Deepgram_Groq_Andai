@@ -20,12 +20,13 @@ export default function Home() {
     <>
       <div className="h-full overflow-hidden">
         {/* height 4rem */}
-        <div className="bg-gradient-to-b from-black/50 to-black/10 backdrop-blur-[2px] h-[4rem] flex items-center">
+        <div className="h-[4rem] flex items-center">
           <header className="mx-auto w-full max-w-7xl px-4 md:px-6 lg:px-8 flex items-center justify-between pt-4 md:pt-0 gap-2">
             <div>
               <a className="flex items-center" href="/">
                 <Image
                   // className="w-40 md:w-auto h-8 max-w-[12.5rem] sm:max-w-none"
+                  className=" rounded"
                   src="/andai.png"
                   alt="Andai Logo"
                   width={45}
@@ -117,7 +118,13 @@ export default function Home() {
               <FacebookIcon className="mb-1" />
             </a> */}
             {/* <div className="border-l border-[#4e4e52] w-px h-7">&nbsp;</div> */}
-            <span className="text-base text-[#4e4e52]">Powered by Deepgram & Groq</span>
+            <a
+              className="text-base font-semibold"
+              href="https://www.andaiplatforms.com/"
+              target="_blank"
+            >
+              www.andaiplatforms.com
+            </a>
             <a
               className="text-base font-semibold"
               href="https://cal.com/andai"

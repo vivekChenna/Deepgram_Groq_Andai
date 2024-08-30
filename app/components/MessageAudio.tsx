@@ -7,7 +7,7 @@ import { useNowPlaying } from "react-nowplaying";
 
 const MessageAudio = ({
   message: { id },
-  className = "",
+  className = " text-gray-300",
   ...rest
 }: {
   message: Message;
@@ -65,7 +65,7 @@ const MessageAudio = ({
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          className={`w-6 h-6 fill-white hover:fill-[#149AFB] ${className}`}
+          className={`w-6 h-6  fill-gray-400 hover:fill-[#149AFB] ${className}`}
           {...rest}
         >
           <path
@@ -91,7 +91,7 @@ const MessageAudio = ({
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          className={`w-6 h-6 fill-white hover:fill-[#149AFB] ${className}`}
+          className={`w-6 h-6 fill-gray-300 hover:fill-[#149AFB] ${className}`}
           {...rest}
         >
           <path

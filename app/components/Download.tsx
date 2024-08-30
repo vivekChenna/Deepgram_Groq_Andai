@@ -15,8 +15,8 @@ const DownloadButton = ({ content }: { content: string }) => {
         rel="noreferrer"
         href={URL.createObjectURL(file)}
       >
-        <DownloadIcon className="w-5 h-5" />
-        <span className="ml-2.5 text-xs">Download transcript</span>
+        <DownloadIcon className="w-5 h-5 text-white" />
+        <span className="ml-2.5 text-xs text-white">Download transcript</span>
       </a>
     </span>
   );

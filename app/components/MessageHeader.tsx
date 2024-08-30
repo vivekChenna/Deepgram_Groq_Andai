@@ -20,11 +20,11 @@ const MessageHeader = ({
   if (message.role === "assistant") {
     return (
       <div className="flex items-center space-x-2 rtl:space-x-reverse">
-        <span className="text-sm font-semibold text-white">
+        <span className="text-sm font-semibold text-black">
           {foundAudio?.model
-            ? voiceMap(foundAudio?.model).name
+            ? voiceMap(foundAudio?.model)?.name
             : foundData?.ttsModel
-              ? voiceMap(foundData?.ttsModel).name
+              ? voiceMap(foundData?.ttsModel)?.name
               : "Deepgram AI"}
         </span>
         <span className="text-xs font-normal text-gray-400">

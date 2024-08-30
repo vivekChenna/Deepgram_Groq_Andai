@@ -9,7 +9,7 @@ import { BoltIcon } from "./icons/BoltIcon";
 const TTFB = () => (
   <Tooltip
     showArrow
-    className="p-5 max-w-md"
+    className="p-5 max-w-md text-white"
     content="Time to first byte (TTFB) is the time it takes from initiating an API request to receiving the first byte of audio from the response."
   >
     <span className="underline decoration-dotted">Time to first-byte</span>
@@ -49,7 +49,7 @@ const MessageMeta = ({
             TTS <TTFB />: {(ttsTtfb / 1000).toFixed(1)}s
           </span>
           <button
-            className="font-semibold hover:text-[#fbfbff]"
+            className="font-semibold hover:text-gray-500"
             onClick={() => setBreakdown(!breakdown)}
           >
             More{" "}

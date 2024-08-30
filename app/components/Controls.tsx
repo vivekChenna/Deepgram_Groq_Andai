@@ -75,7 +75,7 @@ export const Controls = ({
                 : "bg-gradient-to-r bg-gradient to-[#13EF93]/50 from-[#149AFB]/80"
             }`}
           >
-            <Tooltip showArrow content="Toggle microphone on/off.">
+            <Tooltip showArrow content="Toggle microphone on/off." className=" text-white">
               <a
                 href="#"
                 onClick={(e: any) => microphoneToggle(e)}
@@ -90,7 +90,7 @@ export const Controls = ({
                   </div>
                 )}
                 <div className="w-auto flex items-center justify-center shrink-0">
-                  <MicrophoneIcon micOpen={microphoneOpen} className="h-5 md:h-6" />
+                  <MicrophoneIcon micOpen={microphoneOpen} className="h-5 md:h-6 text-white" />
                 </div>
                 {/* <span>
                 {microphoneOpen ? (
@@ -110,7 +110,7 @@ export const Controls = ({
                 rows={1}
                 spellCheck={false}
                 autoCorrect="off"
-                className="py-2 md:py-4 -mb-[0.4rem] min-h-10 overflow-hidden sm:px-4 w-full resize-none bg-[#101014] text-light-900 border-0 text-sm sm:text-base outline-none focus:ring-0"
+                className="py-2 md:py-4 -mb-[0.4rem] min-h-10 overflow-hidden sm:px-4 w-full resize-none bg-[#101014] text-white border-0 text-sm sm:text-base outline-none focus:ring-0"
                 placeholder="Send a message"
                 value={input}
                 onChange={handleInputChange}
