@@ -32,7 +32,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://aura-tts-demo.deepgram.com"),
   title: "Andai AI Agent",
-  description: `Andai's AI Agent Demo shows just how fast Speech-to-Text and Text-to-Speech can be.`,
+  description: `Andai's AI Agent powered by Deepgram & Groq`,
   robots: {
     index: false,
     follow: false,
