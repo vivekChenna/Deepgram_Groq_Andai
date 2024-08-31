@@ -450,7 +450,7 @@ export default function Conversation(): JSX.Element {
                     initialLoad ? "justify-center" : "justify-end"
                   }`}
                 >
-                  <div className="grid grid-cols-12 overflow-x-auto gap-y-2">
+                  <div className="grid grid-cols-12 overflow-x-auto gap-y-2 [&::-webkit-scrollbar]:hidden">
                     {initialLoad ? (
                       <InitialLoad fn={startConversation} connecting={!connection} />
                     ) : (

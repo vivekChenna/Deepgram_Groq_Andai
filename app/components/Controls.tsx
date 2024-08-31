@@ -120,7 +120,7 @@ export const Controls = ({
           </div>
 
           <div className="inline h-auto rounded-tr-[2rem] rounded-br-[2rem] bg-gradient-to-l to-[#13EF93]/50 from-[#149AFB]/80 pe-0.5 py-0.5">
-            <Tooltip showArrow content="Send a message.">
+            <Tooltip showArrow content="Send a message." className=" text-white">
               <button type="submit" className="w-16 md:w-24 h-full py-2 md:py-4 px-2 rounded-tr-[2rem] rounded-br-[2rem] font-bold bg-[#101014] text-light-900 text-sm sm:text-base flex items-center justify-center">
                 {/* <span>Send text</span> */}
                 <SendIcon className="w-5 md:w-6" />
