@@ -38,6 +38,15 @@ export async function POST(req: Request) {
 
     const stream = OpenAIStream(response);
 
+    // console.log('stream' , stream);
+    // console.log( new StreamingTextResponse(stream , {
+    //   headers: {
+    //     "X-LLM-Start": `${start}`,
+    //     "X-LLM-Response": `${Date.now()}`,
+    //   },
+    // }));
+    
+    
     return new StreamingTextResponse(stream, {
       headers: {
         "X-LLM-Start": `${start}`,
