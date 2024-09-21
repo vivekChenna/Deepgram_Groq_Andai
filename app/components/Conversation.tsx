@@ -69,6 +69,7 @@ export default function Conversation(): JSX.Element {
    */
   const [initialLoad, setInitialLoad] = useState(true);
   const [isProcessing, setProcessing] = useState(false);
+  const [isChat, setIsChat] = useState(false);
 
   /**
    * Request audio from API
@@ -452,7 +453,11 @@ export default function Conversation(): JSX.Element {
                 >
                   <div className="grid grid-cols-12 overflow-x-auto gap-y-2 [&::-webkit-scrollbar]:hidden">
                     {initialLoad ? (
-                      <InitialLoad fn={startConversation} connecting={!connection} />
+                      <InitialLoad
+                        fn={startConversation}
+                        setIsChat={() => setIsChat(true)}
+                        connecting={!connection}
+                      />
                     ) : (
                       <>
                         {chatMessages.length > 0 &&
@@ -478,6 +483,7 @@ export default function Conversation(): JSX.Element {
                     handleSubmit={handleSubmit}
                     handleInputChange={handleInputChange}
                     input={input}
+                    isChat={isChat}
                   />
                 )}
               </div>

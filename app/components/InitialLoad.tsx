@@ -3,15 +3,15 @@ import { isBrowser } from "react-device-detect";
 import { Spinner } from "@nextui-org/react";
 import Image from "next/image";
 
-export const InitialLoad = ({ fn, connecting = true }: { fn: () => void, connecting: boolean }) => {
+export const InitialLoad = ({ fn, connecting = true  , setIsChat}: { fn: () => void, connecting: boolean  , setIsChat: () => void}) => {
   return (
     <>
       <div className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 lg:col-start-4 lg:col-end-10 p-3 mb-1/2">
-        <button
-          disabled={connecting}
-          onClick={() => !connecting && fn()}
-          type="button"
-          className="relative block w-full border shadow p-6 sm:p-8 lg:p-12 rounded-xl"
+        <div
+          // disabled={connecting}
+          // onClick={() => !connecting && fn()}
+          // type="button"
+          className="relative block w-full border shadow p-6 sm:p-8 lg:p-12 rounded-xl text-center"
         >
           <h2 className="font-favorit mt-2 block font-bold text-xl text-black">
             Welcome to Andai&apos;s
@@ -26,17 +26,48 @@ export const InitialLoad = ({ fn, connecting = true }: { fn: () => void, connect
             </ul>
           </div> */}
           <span className="mt-4 block font-semibold">
-            <div className="bg-white text-black rounded-md px-6 md:px-8 py-3 font-semibold sm:w-fit sm:mx-auto opacity-90 border">
+            <div className="text-black font-semibold sm:w-fit sm:mx-auto opacity-90">
               {connecting ? (
-                <div className="w-full h-full items-center flex justify-center opacity-40 cursor-not-allowed">
+                <div className="w-full h-full items-center flex justify-center cursor-not-allowed bg-white border px-6 md:px-8 py-3">
                   <Spinner size={"sm"} className="-mt-1 mr-2" />
                   Connecting...
                 </div>
               ) : (
                 // <>{isBrowser ? "Click" : "Tap"} here to start</>
-                <div className=" flex items-center gap-1.5" >
-                <Image src="/phone-call.svg" alt="call" height={15} width={15} />
-                <>Call</>
+                <div className=" flex items-center gap-5 justify-center">
+                  <button
+                    disabled={connecting}
+                    type="button"
+                    className=" flex items-center gap-1.5 px-6 md:px-8 py-3  bg-white rounded-md border"
+                    onClick={() => !connecting && fn()}
+                  >
+                    <Image
+                      src="/phone-call.svg"
+                      alt="call"
+                      height={15}
+                      width={15}
+                    />
+                    <>Call</>
+                  </button>
+                  <button
+                   className=" flex items-center gap-1.5 px-6 md:px-8 py-3  bg-white rounded-md border"
+                    disabled={connecting}
+                    type="button"
+                    onClick={() => {
+                      if (!connecting) {
+                        fn(); // Call the function
+                        setIsChat(); // Set chat state to true (or whatever the intention is)
+                      }
+                    }}
+                  >
+                       <Image
+                      src="/chat.png"
+                      alt="chat"
+                      height={17}
+                      width={17}
+                    />
+                    <>Chat</>
+                  </button>
                 </div>
               )}
             </div>
@@ -47,7 +78,7 @@ export const InitialLoad = ({ fn, connecting = true }: { fn: () => void, connect
              {/* Minor bugs and annoyances may appear
             while using this demo. Pull requests are welcome. */}
           </span>
-        </button>
+        </div>
       </div>
     </>
   );
