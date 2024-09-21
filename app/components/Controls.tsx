@@ -115,14 +115,14 @@ export const Controls = ({
             </span>
           )}
 
-          <div className="flex-grow inline py-0.5 rounded-full">
+          <div className={`flex-grow inline py-0.5 rounded-full  ${isChat && "border-2 border-black"} `}>
             <div className=" bg-[#101014] h-full rounded-full pl-2">
               <TextareaAutosize
                 onKeyDown={onKeyDown}
                 rows={1}
                 spellCheck={false}
                 autoCorrect="off"
-                className="py-2 md:py-4 -mb-[0.4rem] min-h-10 overflow-hidden sm:px-4 w-full resize-none bg-[#101014] text-white border-0 text-sm sm:text-base outline-none focus:ring-0 rounded-full"
+                className="py-2 md:py-4 -mb-[0.4rem] min-h-10 overflow-hidden px-4 sm:px-4 w-full resize-none bg-[#101014] text-white text-sm sm:text-base outline-none focus:ring-0 rounded-full"
                 placeholder="Send a message"
                 value={input}
                 onChange={handleInputChange}
@@ -141,7 +141,7 @@ export const Controls = ({
                 className="w-16 md:w-24 h-full py-2 md:py-4 px-2 rounded-tr-[2rem] rounded-br-[2rem] font-bold bg-[#101014] text-light-900 text-sm sm:text-base flex items-center justify-center"
               >
                 {/* <span>Send text</span> */}
-                <SendIcon className="w-5 md:w-6" />
+                <SendIcon className="w-5 md:w-6 text-white" />
               </button>
             </Tooltip>
           </div>
