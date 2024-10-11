@@ -5,7 +5,13 @@ import { MessageHeader } from "./MessageHeader";
 import { MessageMeta } from "./MessageMeta";
 import { TextContent } from "./TextContext";
 
-export const LeftBubble = ({ message }: { message: Message }) => {
+export const LeftBubble = ({
+  message,
+  isChat,
+}: {
+  message: Message;
+  isChat: boolean;
+}) => {
   return (
     <>
       <div className="col-start-1 col-end-13 sm:col-end-11 md:col-end-9 lg:col-end-8 xl:col-end-7 md:px-3 pt-3">
@@ -24,9 +30,11 @@ export const LeftBubble = ({ message }: { message: Message }) => {
             </div>
           </div>
           <div className="md:px-1 pb-3 flex gap-2 self-start md:self-center">
-            <div className="h-6 w-6 shrink-0">
-              <MessageAudio message={message} />
-            </div>
+            {!isChat && (
+              <div className="h-6 w-6 shrink-0">
+                <MessageAudio message={message} />
+              </div>
+            )}
             <MessageMeta className="md:hidden" message={message} />
           </div>
         </div>

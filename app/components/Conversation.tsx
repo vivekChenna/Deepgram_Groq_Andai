@@ -76,6 +76,9 @@ export default function Conversation(): JSX.Element {
    */
   const requestTtsAudio = useCallback(
     async (message: Message) => {
+      if (isChat) {
+        return;
+      }
       const start = Date.now();
       const model = ttsOptions?.model ?? "aura-asteria-en";
 
@@ -100,7 +103,7 @@ export default function Conversation(): JSX.Element {
       });
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [ttsOptions?.model]
+    [ttsOptions?.model , isChat]
   );
 
   const [llmNewLatency, setLlmNewLatency] = useState<{
@@ -247,8 +250,13 @@ export default function Conversation(): JSX.Element {
    * Contextual functions
    */
   const requestWelcomeAudio = useCallback(async () => {
-    requestTtsAudio(greetingMessage);
-  }, [greetingMessage, requestTtsAudio]);
+
+    if (isChat) {
+      return;
+    } else {
+      requestTtsAudio(greetingMessage);
+    }
+  }, [greetingMessage, requestTtsAudio, isChat]);
 
   const startConversation = useCallback(() => {
     if (!initialLoad) return;
@@ -462,7 +470,7 @@ export default function Conversation(): JSX.Element {
                       <>
                         {chatMessages.length > 0 &&
                           chatMessages.map((message, i) => (
-                            <ChatBubble message={message} key={i} />
+                            <ChatBubble message={message} key={i} isChat={isChat} />
                           ))}
 
                         {currentUtterance && (
