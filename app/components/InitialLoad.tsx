@@ -2,8 +2,19 @@ import { Headphones } from "./Headphones";
 import { isBrowser } from "react-device-detect";
 import { Spinner } from "@nextui-org/react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
-export const InitialLoad = ({ fn, connecting = true  , setIsChat}: { fn: () => void, connecting: boolean  , setIsChat: () => void}) => {
+export const InitialLoad = ({
+  fn,
+  connecting = true,
+  setIsChat,
+}: {
+  fn: () => void;
+  connecting: boolean;
+  setIsChat: () => void;
+}) => {
+  const router = useRouter();
+
   return (
     <>
       <div className="col-start-1 col-end-13 sm:col-start-2 sm:col-end-12 md:col-start-3 md:col-end-11 lg:col-start-4 lg:col-end-10 p-3 mb-1/2">
@@ -34,40 +45,59 @@ export const InitialLoad = ({ fn, connecting = true  , setIsChat}: { fn: () => v
                 </div>
               ) : (
                 // <>{isBrowser ? "Click" : "Tap"} here to start</>
-                <div className=" flex items-center gap-5 justify-center">
-                  <button
-                    disabled={connecting}
-                    type="button"
-                    className=" flex items-center gap-1.5 px-6 md:px-8 py-3  bg-white rounded-md border"
-                    onClick={() => !connecting && fn()}
-                  >
-                    <Image
-                      src="/phone-call.svg"
-                      alt="call"
-                      height={15}
-                      width={15}
-                    />
-                    <>Call</>
-                  </button>
-                  <button
-                   className=" flex items-center gap-1.5 px-6 md:px-8 py-3  bg-white rounded-md border"
-                    disabled={connecting}
-                    type="button"
-                    onClick={() => {
-                      if (!connecting) {
-                        fn(); // Call the function
-                        setIsChat(); // Set chat state to true (or whatever the intention is)
-                      }
-                    }}
-                  >
-                       <Image
-                      src="/chat.png"
-                      alt="chat"
-                      height={17}
-                      width={17}
-                    />
-                    <>Chat</>
-                  </button>
+                <div className=" flex items-center gap-5 justify-center flex-col">
+                  <div className="flex items-center gap-5 justify-center">
+                    <button
+                      disabled={connecting}
+                      type="button"
+                      className=" flex items-center gap-1.5 px-6 md:px-8 py-3  bg-white rounded-md border"
+                      onClick={() => !connecting && fn()}
+                    >
+                      <Image
+                        src="/phone-call.svg"
+                        alt="call"
+                        height={15}
+                        width={15}
+                      />
+                      <>Call</>
+                    </button>
+                    <button
+                      className=" flex items-center gap-1.5 px-6 md:px-8 py-3  bg-white rounded-md border"
+                      disabled={connecting}
+                      type="button"
+                      onClick={() => {
+                        if (!connecting) {
+                          fn(); // Call the function
+                          setIsChat(); // Set chat state to true (or whatever the intention is)
+                        }
+                      }}
+                    >
+                      <Image
+                        src="/chat.png"
+                        alt="chat"
+                        height={17}
+                        width={17}
+                      />
+                      <>Chat</>
+                    </button>
+                  </div>
+                  <div>
+                    <button
+                      className=" flex items-center gap-1.5 px-6 md:px-8 py-3  bg-white rounded-md border animate-bounce"
+                      type="button"
+                      onClick={() => {
+                        router.push("https://andaihub.vercel.app");
+                      }}
+                    >
+                      <Image
+                        src="/phone-call.svg"
+                        alt="call"
+                        height={15}
+                        width={15}
+                      />
+                      Empathetic Call
+                    </button>
+                  </div>
                 </div>
               )}
             </div>
@@ -75,7 +105,7 @@ export const InitialLoad = ({ fn, connecting = true  , setIsChat}: { fn: () => v
           <span className="mt-4 block text-sm text-black">
             <Headphones /> For optimal enjoyment, we recommend using headphones
             while using this application.
-             {/* Minor bugs and annoyances may appear
+            {/* Minor bugs and annoyances may appear
             while using this demo. Pull requests are welcome. */}
           </span>
         </div>
