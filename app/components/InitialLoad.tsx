@@ -86,8 +86,7 @@ export const InitialLoad = ({
                       className=" flex items-center gap-1.5 px-6 md:px-8 py-3  bg-white rounded-md border animate-bounce"
                       type="button"
                       onClick={() => {
-                        // window.open('https://andaihub.vercel.app', '_blank');
-                        router.push('https://andaihub.vercel.app/');
+                        window.open("https://andaihub.vercel.app", "_blank");
                       }}
                     >
                       <Image
