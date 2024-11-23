@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:9080": "set PORT=9080 && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
