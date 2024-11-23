@@ -17,4 +17,4 @@ EXPOSE 9020
 
 
 # Command to run the application
-CMD ["npm", "dev","-p","9020"]
+CMD ["npm", "run", "dev", "--", "--port", "9020"]
